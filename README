@@ -5,7 +5,7 @@
 This plugin enhances the default tag helpers to automatically add CSS classes
 to form elements. It's similar to the <tt>enhanced_form_tag_helper</tt> plugin,
 but takes a different approach by directly intercepting the <tt>tag</tt> and
-<tt>content_tag</tt> methods, and should therefore work in all situations where 
+<tt>content_tag</tt> methods, and should therefore work in all situations where
 form elements are created, especially the <tt>FormHelper</tt> and more exotic
 ones like <tt>button_to</tt>.
 

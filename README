@@ -12,11 +12,10 @@ ones like <tt>button_to</tt>.
 The following elements are enhanced:
 
 * <tt><input></tt> tags get their type as class name
-* submit buttons additionally get the class name _button_
+* submit and reset buttons additionally get the class name _button_
 * password fields additionally get the class name _text_
 * <tt><textarea></tt> tags get the class name _text_
-* <tt><select></tt> tags get the class name _select_
-* <tt><button></tt> tags get the class name _button_
+* <tt><select></tt> and <tt><button></tt> tags are not enhanced
 
 If any helper options already specify a class, nothing will be changed. If you
 don't want a class to be added, pass <tt>:class => nil</tt>.

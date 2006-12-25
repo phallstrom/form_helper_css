@@ -25,12 +25,8 @@ module ActionView
         elsif name == :input and options['type']
           return options if (options['type'] == 'hidden')
           options['class'] = options['type'].dup
-          options['class'] << ' button' if options['type'] == 'submit'
+          options['class'] << ' button' if ['submit', 'reset'].include? options['type']
           options['class'] << ' text' if options['type'] == 'password'
-        elsif name == :button
-          options['class'] = 'button'
-        elsif name == :select
-          options['class'] = 'select'
         elsif name == :textarea
           options['class'] = 'text'
         end

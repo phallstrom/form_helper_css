@@ -19,13 +19,13 @@ module ActionView
         options
       end
 
-      def tag_with_css(name, options={}, open=false)
-        tag_without_css(name, css_options_for_tag(name, options), open)
+      def tag_with_css(name, options=nil, open=false)
+        tag_without_css(name, css_options_for_tag(name, options || {}), open)
       end
       alias_method_chain :tag, :css
 
-      def content_tag_with_css(name, content, options={})
-        content_tag_without_css(name, content, css_options_for_tag(name, options))
+      def content_tag_with_css(name, content, options=nil)
+        content_tag_without_css(name, content, css_options_for_tag(name, options || {}))
       end
       alias_method_chain :content_tag, :css
     end

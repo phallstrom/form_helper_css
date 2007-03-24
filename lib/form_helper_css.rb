@@ -24,15 +24,14 @@ module ActionView
       end
       alias_method_chain :tag, :css
 
-      def content_tag_with_css(name, content, options=nil)
-        content_tag_without_css(name, content, css_options_for_tag(name, options || {}))
+      def content_tag_string_with_css(name, content, options)
+        content_tag_string_without_css(name, content, css_options_for_tag(name, options || {}))
       end
-      alias_method_chain :content_tag, :css
+      alias_method_chain :content_tag_string, :css
     end
 
     class InstanceTag
       alias_method :tag_without_error_wrapping, :tag_with_css
-      alias_method :content_tag_without_error_wrapping, :content_tag_with_css
     end
   end
 end

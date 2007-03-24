@@ -5,7 +5,7 @@ module ActionView
     module TagHelper
       def css_options_for_tag(name, options={})
         name = name.to_sym
-        options.stringify_keys!
+        options = options.stringify_keys
         if options.has_key? 'class'
           return options
         elsif name == :input and options['type']

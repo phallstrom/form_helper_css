@@ -2,9 +2,9 @@
 
 require 'test/unit'
 require 'rubygems'
-require 'active_support'
 require 'action_controller'
-require 'action_view'
+
+require 'init'
 
 class FormHelperCssTest < Test::Unit::TestCase
   include ActionView::Helpers::TagHelper
@@ -12,7 +12,6 @@ class FormHelperCssTest < Test::Unit::TestCase
   include ActionView::Helpers::FormTagHelper
   include ActionView::Helpers::FormHelper
 
-require 'form_helper_css'
   def test_tag_helper
     assert_equal '<br />', tag(:br)
     assert_equal '<p></p>', content_tag(:p, '')
@@ -46,4 +45,9 @@ require 'form_helper_css'
     assert_match 'class="text"', text_area(:object, :field)
     assert_match 'class="text"', text_field(:object, :field)
   end
+
+  protected
+    def protect_against_forgery?
+      false
+    end
 end

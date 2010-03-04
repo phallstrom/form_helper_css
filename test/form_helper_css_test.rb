@@ -34,6 +34,17 @@ class FormHelperCssTest < Test::Unit::TestCase
     assert_match 'class="button"', submit_tag('submit', :type => 'button')
     assert_match 'class="text"', text_area_tag('text')
     assert_match 'class="text"', text_field_tag('text')
+
+    assert_match 'class="foo"', check_box_tag('checkbox', 'value', false, :class => 'foo')
+    assert_match 'class="foo"', file_field_tag('file', :class => 'foo')
+    assert_match 'class="foo"', hidden_field_tag('hidden', 1, :class => 'foo')
+    assert_match 'class="foo"', password_field_tag('password', nil, :class => 'foo')
+    assert_match 'class="foo"', radio_button_tag('radio', 'value', false, :class => 'foo')
+    assert_match 'class="foo"', submit_tag('submit', :class => 'foo')
+    assert_match 'class="foo"', submit_tag('reset', :type => 'reset', :class => 'foo')
+    assert_match 'class="foo"', submit_tag('submit', :type => 'button', :class => 'foo')
+    assert_match 'class="foo"', text_area_tag('text', nil, :class => 'foo')
+    assert_match 'class="foo"', text_field_tag('text', nil, :class => 'foo')
   end
 
   def test_form_helper
@@ -44,6 +55,14 @@ class FormHelperCssTest < Test::Unit::TestCase
     assert_match '', radio_button(:object, :field, 'value')
     assert_match 'class="text"', text_area(:object, :field)
     assert_match 'class="text"', text_field(:object, :field)
+
+    assert_match 'class="foo"', check_box(:object, :field, :class => 'foo')
+    assert_match 'class="foo"', file_field(:object, :field, :class => 'foo')
+    assert_match 'class="foo"', hidden_field(:object, :field, :class => 'foo')
+    assert_match 'class="foo"', password_field(:object, :field, :class => 'foo')
+    assert_match 'class="foo"', radio_button(:object, :field, 'value', :class => 'foo')
+    assert_match 'class="foo"', text_area(:object, :field, :class => 'foo')
+    assert_match 'class="foo"', text_field(:object, :field, :class => 'foo')
   end
 
   protected

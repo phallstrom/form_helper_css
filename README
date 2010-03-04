@@ -20,11 +20,21 @@ The following elements are enhanced:
 If any helper options already specify a class, nothing will be changed. If you
 don't want a class to be added, pass <tt>:class => nil</tt>.
 
+There is a single option which can be set in the following manner:
+
+  ActionView::Helpers::TagHelper::FORM_HELPER_CSS_OPTIONS.merge!(:append => true)
+
+If set to true, then even if a class is specified, the magical classes will be appended to the output.
+
 == License
 
 The <tt>form_helper_css</tt> plugin is released under the MIT license.
 
 == Author
+
+Philip Hallstrom <philip at pjkh dot com>
+
+== Original Author
 
 Markus Koller <toupeira at gmx dot ch>
 

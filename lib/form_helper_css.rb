@@ -3,18 +3,29 @@
 module ActionView
   module Helpers
     module TagHelper
+
+      FORM_HELPER_CSS_OPTIONS = {:append => false}
+
       def css_options_for_tag(name, options={})
         name = name.to_sym
         options = options.stringify_keys
-        if options.has_key? 'class'
+        if FORM_HELPER_CSS_OPTIONS[:append] == false && options.has_key?('class')
           return options
         elsif name == :input and options['type']
           return options if (options['type'] == 'hidden')
-          options['class'] = options['type'].dup
+          if FORM_HELPER_CSS_OPTIONS[:append] && options['class']
+            options['class'] << ' ' + options['type'].dup
+          else
+            options['class'] = options['type'].dup
+          end
           options['class'] << ' button' if ['submit', 'reset'].include? options['type']
           options['class'] << ' text' if options['type'] == 'password'
         elsif name == :textarea
-          options['class'] = 'text'
+          if FORM_HELPER_CSS_OPTIONS[:append] && options['class']
+            options['class'] << ' text'
+          else
+            options['class'] = 'text'
+          end
         end
         options
       end

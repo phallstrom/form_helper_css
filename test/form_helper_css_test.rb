@@ -99,6 +99,18 @@ class FormHelperCssTest < Test::Unit::TestCase
     assert_match 'class="foo text"', text_field(:object, :field, :class => 'foo')
   end
 
+  def test_form_helper_with_duplicate_classes_and_append
+    ActionView::Helpers::TagHelper::FORM_HELPER_CSS_OPTIONS.merge!(:append => true)
+    assert_match 'class="foo bar checkbox"', check_box(:object, :field, :class => 'foo bar foo')
+    assert_match 'class="foo bar file"', file_field(:object, :field, :class => 'foo bar foo')
+    assert_match 'class="foo bar foo"', hidden_field(:object, :field, :class => 'foo bar foo')
+    assert_match 'class="foo bar password text"', password_field(:object, :field, :class => 'foo bar foo')
+    assert_match 'class="foo bar radio"', radio_button(:object, :field, 'value', :class => 'foo bar foo')
+    assert_match 'class="foo bar text"', text_area(:object, :field, :class => 'foo bar foo')
+    assert_match 'class="foo bar text"', text_field(:object, :field, :class => 'foo bar foo')
+  end
+
+
   protected
     def protect_against_forgery?
       false

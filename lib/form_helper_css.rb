@@ -27,6 +27,9 @@ module ActionView
             options['class'] = 'text'
           end
         end
+        if options['class']
+          options['class'] = options['class'].to_s.strip.split(/\s+/).uniq.join(' ') # de-dup the class list
+        end
         options
       end
 

@@ -14,9 +14,9 @@ module ActionView
         elsif name == :input and options['type']
           return options if (options['type'] == 'hidden')
           if FORM_HELPER_CSS_OPTIONS[:append] && options['class']
-            options['class'] << ' ' + options['type'].dup
+            options['class'] << ' ' + options['type'].to_s.dup
           else
-            options['class'] = options['type'].dup
+            options['class'] = options['type'].to_s.dup
           end
           options['class'] << ' button' if ['submit', 'reset'].include? options['type']
           options['class'] << ' text' if options['type'] == 'password'

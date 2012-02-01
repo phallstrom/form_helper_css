@@ -1,10 +1,9 @@
 # $Id$
 
-require 'test/unit'
 require 'rubygems'
+require 'test/unit'
 require 'action_controller'
-
-require 'init'
+require 'form_helper_css'
 
 class FormHelperCssTest < Test::Unit::TestCase
   include ActionView::Helpers::TagHelper

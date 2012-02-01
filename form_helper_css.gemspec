@@ -5,11 +5,16 @@ require "form_helper_css/version"
 Gem::Specification.new do |s|
   s.name        = "form_helper_css"
   s.version     = FormHelperCss::VERSION
-  s.authors     = ["Meron Bareket"]
-  s.email       = ["mrnbrkt@gmail.com"]
-  s.homepage    = ""
-  s.summary     = %q{TODO: Write a gem summary}
-  s.description = %q{TODO: Write a gem description}
+  s.authors     = ["Philip Hallstrom"]
+  s.email       = ["philip at pjkh dot com"]
+  s.homepage    = "https://github.com/phallstrom/form_helper_css"
+  s.summary     = "enhances the default tag helpers to automatically add CSS classes to form elements"
+  s.description = "This plugin enhances the default tag helpers to automatically add CSS classes
+to form elements. It's similar to the enhanced_form_tag_helper plugin,
+but takes a different approach by directly intercepting the tag and
+content_tag methods, and should therefore work in all situations where
+form elements are created, especially the <tt>FormHelper</tt> and more exotic
+ones like button_to."
 
   s.rubyforge_project = "form_helper_css"
 
@@ -19,6 +24,6 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
 
   # specify any dependencies here; for example:
-  # s.add_development_dependency "rspec"
+   s.add_development_dependency "rake"
   # s.add_runtime_dependency "rest-client"
 end

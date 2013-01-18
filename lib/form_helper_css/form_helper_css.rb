@@ -9,7 +9,10 @@ module ActionView
       def css_options_for_tag(name, options={})
         name = name.to_sym
         options = options.stringify_keys
+        class_was_array = options['class'].is_a?(Array)
+        options['class'] = options['class'].join(' ') if class_was_array
         if FORM_HELPER_CSS_OPTIONS[:append] == false && options.has_key?('class')
+          options['class'] = options['class'].split(' ') if class_was_array
           return options
         elsif name == :input and options['type']
           return options if (options['type'] == 'hidden')
@@ -30,6 +33,7 @@ module ActionView
         if options['class']
           options['class'] = options['class'].to_s.strip.split(/\s+/).uniq.join(' ') # de-dup the class list
         end
+        options['class'] = options['class'].split(' ') if class_was_array
         options
       end
 

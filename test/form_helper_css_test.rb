@@ -19,7 +19,7 @@ class FormHelperCssTest < Test::Unit::TestCase
     assert_equal '<br />', tag(:br)
     assert_equal '<p></p>', content_tag(:p, '')
     assert_equal '<input type="text" />', tag(:input, :type => 'text', :class => nil)
-    assert_equal '<textarea></textarea>', content_tag(:textarea, '', :class => nil)
+    assert_equal "<textarea>\n</textarea>", content_tag(:textarea, '', :class => nil)
   end
 
   def test_url_helper
@@ -64,6 +64,11 @@ class FormHelperCssTest < Test::Unit::TestCase
     assert_match 'class="foo button"', submit_tag('submit', :type => 'button', :class => 'foo')
     assert_match 'class="foo text"', text_area_tag('text', nil, :class => 'foo')
     assert_match 'class="foo text"', text_field_tag('text', nil, :class => 'foo')
+  end
+
+  def test_css_options_for_tag_with_class_array
+    ActionView::Helpers::TagHelper::FORM_HELPER_CSS_OPTIONS.merge!(:append => true)
+    assert_equal ['foo', 'bar', 'checkbox'], css_options_for_tag('input', :type => 'checkbox', :class => ['foo', :bar])['class']
   end
 
 

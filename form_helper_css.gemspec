@@ -5,6 +5,7 @@ require "form_helper_css/version"
 Gem::Specification.new do |s|
   s.name        = "form_helper_css"
   s.version     = FormHelperCss::VERSION
+  s.license     = "MIT"
   s.authors     = ["Philip Hallstrom"]
   s.email       = ["philip at pjkh dot com"]
   s.homepage    = "https://github.com/phallstrom/form_helper_css"
